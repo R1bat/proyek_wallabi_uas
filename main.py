@@ -7,10 +7,7 @@ Created on Mon Nov  6 13:51:35 2023
 
 #var global = user_arr (variabel sementara user), data_user (variabel hasil konfersi dengan json), username (nama file user), client (dictionary sementara user)
 
-import os
-import json
-import time
-import getpass as gp
+import os, json, time, getpass as gp, plan as pl, job_adv as ja, money_adv as ma, evaluation as eva
 
 user_arr = []
 #varaibel array yang akan menampung data sementara user pada sistem
@@ -156,3 +153,36 @@ def login(): #fungsi login
 
 greeting()
 init()
+
+def main_menu():
+    os.system('cls')
+    while True:
+        print("1.Laporan Keuangan Harian")
+        print("2.Saran Pekerjaan")
+        print("3.Saran Keuangan")
+        print("4.Evaluasi Bulanan")
+        konfirmasi = input("Pilih menu tujuan: ")
+        
+        if konfirmasi == "1":
+            os.system('cls')
+            pl.menu_plan()
+        elif konfirmasi == "2":
+            os.system('cls')
+            ja.RekomendasiPekerjaan()
+        elif konfirmasi == "3":
+            os.system('cls')
+            ma.RekomendasikanPenyaluranDana()
+        elif konfirmasi == "4":
+            os.system('cls')
+            eva.evluasi_keuangan()
+        elif konfirmasi.lower() == "q":
+            os.system('cls')
+            break
+        else:
+            print("Invalid input, please try again")
+            main_menu()
+    print("Terima kasih telah menggunakan layanan kami")
+    exit()
+main_menu()
+
+        
